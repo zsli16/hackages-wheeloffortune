@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+// const url = 'http://192.168.0.102:3001';
+const url = 'http://localhost:3001';
 
 
 class SignUpForm extends Component {
@@ -27,7 +29,7 @@ class SignUpForm extends Component {
 
     if (email.match(emailRegex) && name !== '' && name.length < 30) {
       e.preventDefault();
-      fetch('http://localhost:3001/signup', {
+      fetch(`${url}/signup`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
