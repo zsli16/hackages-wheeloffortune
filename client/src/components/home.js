@@ -41,13 +41,10 @@ class Home extends Component {
       <div>
         <div className="main-container">
           <h1 className="title">Hackages Wheel of Fortune</h1>
+          <Link className="signup-link" to="/signup">Click here to add your name to the wheel </Link>
           <h3>{winnerName}&nbsp;</h3>
         </div>
-        {/* <Wheel winnerIndex={winnerIndex} participants={participants} generateWinner={() => this.generateWinner()} /> */}
         <GradientWheel winnerIndex={winnerIndex} participants={participants} generateWinner={() => this.generateWinner()} />
-        <div className="main-container">
-          <Link className="signup-link" to="/signup">Click here to add your name to the wheel </Link>
-        </div>
       </div>
     )
   }
