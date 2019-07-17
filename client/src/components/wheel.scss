@@ -15,6 +15,17 @@ a {
 	color:#34495e;	
 }
 
+/*CONIC GRADIENT METHOD*/
+
+.chart {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  position: relative;
+  margin-left: 10%;
+  background: conic-gradient(yellowgreen 40%, gold 0 70%, #f06 0);
+}
+
 /*PIE*/
 
 .pie-container {
