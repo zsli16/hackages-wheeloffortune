@@ -13,7 +13,9 @@ const chart = (properties) => ({
     'height': '500px',
     'marginLeft': '10%',
     'transition': '1s all',
-    'position': 'relative'
+    'position': 'relative',
+    'zIndex': -1,
+    'float': 'left'
 })
 
 const GradientWheel = ({participants, winnerIndex, ...props}) => {
@@ -25,15 +27,17 @@ const GradientWheel = ({participants, winnerIndex, ...props}) => {
 
   const wheel = useRef(null);
 
-  const spinWheel = () => {
+  const spinWheel = (participants) => {
+    const randomIndex = Math.floor(Math.random() * participants.length);
+    const winnerName = participants[winnerIndex].name;
     wheel.current.classList.add('rotate-wheel')
   }
 
   return (
     <div>
-      <button className="spin-wheel" onClick={spinWheel}>Spin</button>
       <div ref={wheel} style={chart(properties)}/>
       <ul>
+        <button className="spin-wheel" onClick={spinWheel}>Spin</button>
         {
           participants.map((participant, index) => {
           const legendColor = getColor(index);

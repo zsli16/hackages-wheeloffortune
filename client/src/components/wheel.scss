@@ -12,9 +12,10 @@ a {
 }
 
 ul {
-  width: 50%;
-  float: right;
+  width: 40%;
   list-style: none;
+  float: right;
+  margin-left: 20px;
 }
 
 li {
@@ -29,7 +30,9 @@ li {
 .rotate-wheel {
   transform: rotate(720deg);
 }
-
+.spin-wheel {
+  margin-bottom: 10px;
+}
 
 
 
