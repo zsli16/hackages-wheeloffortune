@@ -4,13 +4,13 @@ import { wheelColors } from './../config.js';
 
 const pie = (degree, color, index) => ({
   'backgroundColor': color,
-  'transform': `rotate(${degree*(index)}deg)`,
+  'transform': `rotate(${degree}deg)`,
   'transition': 'all 1s',
   'position': 'absolute',
   'width': '500px',
   'height': '500px',
   'borderRadius': '50%',
-  'clip': `rect(0px, ${100/(index+1)}%, ${100/(index+1)}%, ${index}px)`
+  'clip': `rect(0px, 250px, 250px, 0px)`
 })
 
 const pieSlice = (degree) => ({
@@ -24,8 +24,8 @@ function getColor(index) {
 function renderWheel(participants) {
   return participants.map((participant, index, allParticipants) => {
     const color = getColor(index);
-    const degree = (index / allParticipants.length) * 360;
-    console.log('index', index)
+    const degree = (360 / (index + 1))
+    console.log('number of entries', index+1)
     console.log('degree', degree)
     return (
       <div key={participant.name} style={pieSlice(degree)} className="hold">
