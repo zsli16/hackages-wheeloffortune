@@ -1,0 +1,113 @@
+$width: 500px;
+$height: 500px;
+$halfcircle: ($width / 2);
+
+* {	margin:0;	padding:0; }
+
+body {
+	background:#eaeaea;
+	color:#fff;
+	font-size:18px;
+	font-family: 'Exo 2', sans-serif;
+}
+
+a {
+	color:#34495e;	
+}
+
+/*PIE*/
+
+.pie-container {
+  position: relative;
+  height: $height;
+  margin-left: 10%;
+}
+
+// .pie {
+//   transition: all 1s;
+//   position: absolute;
+//   width: $width;
+//   height: $height;
+//   border-radius: 50%;
+//   clip: rect(0px, $halfcircle, $width, 0px);
+// }
+
+.hold {
+  position: absolute;
+  width: $width;
+  height: $height;
+  border-radius: 50%;
+  clip: rect(0px, $width, $width, $halfcircle);
+}
+
+// #pieSlice1 .pie {
+//   background-color: #1b458b;
+//   transform:rotate(30deg);
+// }
+
+// #pieSlice2 {
+//   transform: rotate(30deg);
+// }
+
+// #pieSlice2 .pie {
+//   background-color: #0a0;
+//   transform: rotate(60deg);
+// }
+
+// #pieSlice3 {
+//   transform: rotate(90deg);
+// }
+
+// #pieSlice3 .pie {
+//   background-color: #f80;
+//   transform: rotate(120deg);
+// }
+
+// #pieSlice4 {
+//   transform: rotate(210deg);
+// }
+
+// #pieSlice4 .pie {
+//   background-color: #08f;
+//   transform: rotate(10deg);
+// }
+
+// #pieSlice5 {
+//   transform: rotate(220deg);
+// }
+
+// #pieSlice5 .pie {
+//   background-color: #a04;
+//   transform: rotate(70deg);
+// }
+
+// #pieSlice6 {
+//   transform: rotate(290deg);
+// }
+
+// #pieSlice6 .pie {
+//   background-color: #ffd700;
+//   transform: rotate(70deg);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
