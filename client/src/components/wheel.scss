@@ -72,7 +72,7 @@ button:focus {
 .wrapper {
   display:  flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   margin-left: 20%;
 }
     
@@ -111,6 +111,10 @@ button:focus {
 .signup-link:hover {
   background-color: lighten($color: #007bff, $amount: 5);
   color: white;
+}
+
+#winner {
+  color: darkgray;
 }
 
 

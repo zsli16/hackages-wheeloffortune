@@ -32,7 +32,8 @@ const GradientWheel = ({participants, winnerIndex, ...props}) => {
 
   const spinWheel = () => {
     const winnerIndex = Math.floor(Math.random() * participants.length);
-    const winnerDegrees = winnerIndex >= 0 ? -((winnerIndex / participants.length * 360) + 360 * 6) : 0
+    const winnerDegrees = -((winnerIndex / participants.length * 360) + 360 * 6)
+    // const winnerDegrees = winnerIndex >= 0 ? -((winnerIndex / participants.length * 360) + 360 * 6) : 0
     wheel.current.style.transform = `rotate(${winnerDegrees - (middleDegree)}deg)`;
     props.generateWinner(winnerIndex)
   }

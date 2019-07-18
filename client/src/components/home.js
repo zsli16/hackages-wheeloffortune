@@ -37,7 +37,7 @@ class Home extends Component {
       <div>
         <div className="main-container">
           <h1 className="title">Hackages Wheel of Fortune</h1>
-          <h3>{winnerName}&nbsp;</h3>
+          <h3 id="winner">And the Winner Is... {winnerName}&nbsp;</h3>
         </div>
         <GradientWheel winnerIndex={winnerIndex} participants={participants} generateWinner={this.generateWinner} />
       </div>
