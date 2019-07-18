@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './../App.css';
-import Wheel from './wheel';
 import GradientWheel from './wheel2';
-import { Link } from 'react-router-dom';
 
 const url = 'http://localhost:3001';
 // const url = 'http://192.168.0.102:3001';
@@ -27,12 +25,10 @@ class Home extends Component {
     return Math.floor(Math.random() * max);
   }
 
-  generateWinner = () => {
-    const { participants } = this.state;
-    const winnerIndex = this.generateRandomNumber(participants.length);
-    const winnerName = participants[winnerIndex].name;
+  generateWinner = async (winnerIndex) => {
+    const winnerName = this.state.participants[winnerIndex].name;
     setTimeout(() => { this.setState({ winnerName: winnerName })}, 6000)
-    this.setState({ winnerIndex: winnerIndex})
+    await this.setState({ winnerIndex: winnerIndex, winnerName: winnerName})
   }
 
   render() {
@@ -41,10 +37,9 @@ class Home extends Component {
       <div>
         <div className="main-container">
           <h1 className="title">Hackages Wheel of Fortune</h1>
-          <Link className="signup-link" to="/signup">Click here to add your name to the wheel </Link>
           <h3>{winnerName}&nbsp;</h3>
         </div>
-        <GradientWheel winnerIndex={winnerIndex} participants={participants} generateWinner={() => this.generateWinner()} />
+        <GradientWheel winnerIndex={winnerIndex} participants={participants} generateWinner={this.generateWinner} />
       </div>
     )
   }
