@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 const url = process.env.REACT_APP_SERVER_URL;
 
-
 class SignUpForm extends Component {
 
   constructor(props) {
@@ -39,7 +38,13 @@ class SignUpForm extends Component {
           email: email
         })
       })
-      .then(() => this.props.history.push('/home'))
+      .then((res) => {
+        if (!res.ok) {
+          this.setState({ error: 'This email address already exists' })
+        } else {
+          this.props.history.push('/home')
+        }
+      })
     } else {
       this.setState({ error: 'Please enter a valid email address... or a shorter name ;)' })
     }

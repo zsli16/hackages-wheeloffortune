@@ -51,7 +51,7 @@ const GradientWheel = ({participants, winnerName, winnerIndex, ...props}) => {
           participants.map((participant, index) => {
           const legendColor = getColor(index);
           return (
-            <li key={participant.name}>
+            <li key={participant.email}>
               <div style={{ 'backgroundColor': `${legendColor}`, 'width': '25px', 'height': '25px'}} />
               <div className="name">{participant.name}</div>
             </li>
