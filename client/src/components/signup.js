@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// const url = 'http://192.168.0.102:3001';
-const url = 'http://localhost:3001';
+const url = process.env.REACT_APP_SERVER_URL;
 
 
 class SignUpForm extends Component {

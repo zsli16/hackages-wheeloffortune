@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './../App.css';
 import GradientWheel from './wheel';
 
-const url = 'http://localhost:3001';
-// const url = 'http://192.168.0.102:3001';
+const url = process.env.REACT_APP_SERVER_URL;
 
 class Home extends Component {
   constructor(props) {
@@ -38,7 +37,7 @@ class Home extends Component {
           <h1 className="title">Hackages Wheel of Fortune</h1>
           <h3 id="winner">And the Winner Is... {winnerName}&nbsp;</h3>
         </div>
-        <GradientWheel winnerIndex={winnerIndex} participants={participants} generateWinner={this.generateWinner} />
+        <GradientWheel winnerName={winnerName} winnerIndex={winnerIndex} participants={participants} generateWinner={this.generateWinner} />
       </div>
     )
   }

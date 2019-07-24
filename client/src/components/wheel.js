@@ -18,7 +18,7 @@ const chart = (properties) => ({
     'float': 'left',
 })
 
-const GradientWheel = ({participants, winnerIndex, ...props}) => {
+const GradientWheel = ({participants, winnerName, winnerIndex, ...props}) => {
 
   const percent = (100 / participants.length).toFixed();
   const middleDegree = (360 * (percent / 100))/2;
