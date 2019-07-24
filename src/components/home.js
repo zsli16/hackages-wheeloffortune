@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './../App.css';
 import GradientWheel from './wheel';
 
-const url = process.env.REACT_APP_SERVER_URL;
+const url = process.env.REACT_APP_SERVER_URL || ''
 
 class Home extends Component {
   constructor(props) {
