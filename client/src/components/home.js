@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './../App.css';
-import GradientWheel from './wheel2';
+import GradientWheel from './wheel';
 
 const url = 'http://localhost:3001';
 // const url = 'http://192.168.0.102:3001';
@@ -27,12 +27,11 @@ class Home extends Component {
 
   generateWinner = async (winnerIndex) => {
     const winnerName = this.state.participants[winnerIndex].name;
-    setTimeout(() => { this.setState({ winnerName: winnerName })}, 6000)
-    await this.setState({ winnerIndex: winnerIndex, winnerName: winnerName})
+    await setTimeout(() => { this.setState({ winnerName: winnerName })}, 1000)
   }
 
   render() {
-    const { winnerIndex, winnerName, participants } = this.state;
+    const { winnerIndex, participants, winnerName } = this.state;
     return(
       <div>
         <div className="main-container">

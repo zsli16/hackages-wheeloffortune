@@ -1,50 +1,71 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './wheel.scss';
-import { wheelColors } from './../config.js';
-
-const pie = (degree, color, index) => ({
-  'backgroundColor': color,
-  'transform': `rotate(${degree}deg)`,
-  'transition': 'all 1s',
-  'position': 'absolute',
-  'width': '500px',
-  'height': '500px',
-  'borderRadius': '50%',
-  'clip': `rect(0px, 250px, 250px, 0px)`
-})
-
-const pieSlice = (degree) => ({
-  transform: `rotate(${degree}deg)`
-})
+import { wheelColors } from '../config.js';
+import { Link } from 'react-router-dom';
 
 function getColor(index) {
-  return wheelColors[index%wheelColors.length];
+  return wheelColors[index];
 }
 
-function renderWheel(participants) {
-  return participants.map((participant, index, allParticipants) => {
+const chart = (properties) => ({
+  'background': `conic-gradient(${properties})`,
+    'borderRadius': '50%',
+    'width': '500px',
+    'height': '500px',
+    'transition': '1s all',
+    'position': 'relative',
+    'zIndex': -1,
+    'float': 'left',
+})
+
+const GradientWheel = ({participants, winnerIndex, ...props}) => {
+
+  const percent = (100 / participants.length).toFixed();
+  const middleDegree = (360 * (percent / 100))/2;
+
+  const properties = participants.map((participant, index) => {
     const color = getColor(index);
-    const degree = (360 / (index + 1))
-    console.log('number of entries', index+1)
-    console.log('degree', degree)
-    return (
-      <div key={participant.name} style={pieSlice(degree)} className="hold">
-        {/* <div key={participant.name} id={`pieSlice${index+1}`} style={pieSlice(index, degree)} className="hold"> */}
-        <div style={pie(degree, color, index)}></div>
-        {/* <div className="pie"></div> */}
-      </div>
-    )
+    return `${color} 0 ${percent*(index+1)}%`
   })
-}
 
-let Wheel = ({participants, winnerIndex, ...props}) => {
+  const wheel = useRef(null);
+
+  const spinWheel = () => {
+    const winnerIndex = Math.floor(Math.random() * participants.length);
+    const winnerDegrees = winnerIndex >= 0 ? -((winnerIndex / participants.length * 360) + 360 * 6) : 0
+    wheel.current.style.transform = `rotate(${winnerDegrees - (middleDegree)}deg)`;
+    props.generateWinner(winnerIndex)
+  }
+
   return (
-    <div className="pie-container"> 
-      {renderWheel(participants)}
+    <div className="wrapper">
+      <div className="wheel-container">
+        <div className="wheel-background"/>
+        <span className="arrow"></span>
+        <button className="spin-wheel" onClick={spinWheel} />
+        <div ref={wheel} style={chart(properties)}/>
+      </div>
+      <ul>
+        <h3>Participants</h3>
+        {
+          participants.map((participant, index) => {
+          const legendColor = getColor(index);
+          return (
+            <li key={participant.name}>
+              <div style={{ 'backgroundColor': `${legendColor}`, 'width': '25px', 'height': '25px'}} />
+              <div className="name">{participant.name}</div>
+            </li>
+          )
+        })
+        }
+    
+        <Link className="signup-link" to="/signup">Sign Up</Link>
+      
+      </ul>
     </div>
   )
 }
 
-export default Wheel;
+export default GradientWheel;
 
 

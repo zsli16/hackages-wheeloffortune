@@ -50,11 +50,11 @@ class SignUpForm extends Component {
     return (
       <div className="container">
         <div className="header-title"><h1>Sign up for the raffle!</h1></div>
-        <div className="form-group">
+        <form className="form-group" onSubmit={this.signUp}>
           <input className="form-control" type="text" value={this.state.name} onChange={(this.updateName)} placeholder="Your name"/>
           <input className="form-control" type="email" value={this.state.email} onChange={this.updateEmail} placeholder="Your e-mail address"/>
           <button className="btn btn-primary btn-block" onClick={this.signUp} type="submit">Sign Up</button>
-        </div>
+        </form>
         <div className={this.state.error.length > 1 ? 'alert alert-danger' : ''}>{this.state.error}</div>
       </div>
 

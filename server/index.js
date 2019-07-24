@@ -24,6 +24,6 @@ app.post('/signup', (req, res) => {
   }
 })
 
-app.listen(port, () => {
+app.listen(PORT, () => {
   console.log(`Express server listening on ${PORT}`)
 })
