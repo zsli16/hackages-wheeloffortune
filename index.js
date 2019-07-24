@@ -10,15 +10,15 @@ app.use(cors())
 app.use(express.json());
 
 /* use server to send static files */
-app.use(express.static(path.join(__dirname, '/build')));
-
-app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname + '/build/index.html'));
-});
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
 app.get('/participants', (req, res) => res.json(JSON.parse(fs.readFileSync('participants.json').toString())));
+
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname + 'client/build/index.html'));
+});
 
 app.post('/signup', (req, res) => {
   try {
