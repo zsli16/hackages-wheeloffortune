@@ -16,6 +16,9 @@ After experimenting with various CSS techniques, the final version on the deploy
 
 First clone this repo and run `yarn` or `yarn install`.
 
+## Set an Admin Password
+In the .env file, create a secret admin password, which can be used to clear the wheel of all participants for each new session.
+
 ## Available Scripts
 
 To start the server, run the following:
@@ -27,7 +30,7 @@ Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
 ### `npm start`
 
-To start the client, run `cd client` and `npm start` <br>
+To start the client, run `cd client` and `yarn start` <br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 Then sign up some users and click the Hackages logo in the middle to spin the wheel!

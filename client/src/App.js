@@ -3,6 +3,7 @@ import './App.css';
 import Home from './components/home';
 import { BrowserRouter as Router, Redirect, Switch, Route } from 'react-router-dom';
 import SignUpForm from './components/signup';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

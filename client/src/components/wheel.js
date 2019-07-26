@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import './wheel.scss';
 import { wheelColors } from '../config.js';
 import { Link } from 'react-router-dom';
+import AdminModal from './modal.js';
 
 function getColor(index) {
   return wheelColors[index];
@@ -18,7 +19,9 @@ const chart = (properties) => ({
     'float': 'left',
 })
 
-const GradientWheel = ({participants, winnerName, winnerIndex, ...props}) => {
+const GradientWheel = ({participants, clearParticipants, winnerName, winnerIndex, ...props}) => {
+
+  const [modalShow, setModalShow] = React.useState(false);
 
   const percent = (100 / participants.length).toFixed();
   const middleDegree = (360 * (percent / 100))/2;
@@ -47,7 +50,7 @@ const GradientWheel = ({participants, winnerName, winnerIndex, ...props}) => {
       </div>
       <ul>
         <h3>Participants</h3>
-        {
+        { 
           participants.map((participant, index) => {
           const legendColor = getColor(index);
           return (
@@ -59,8 +62,14 @@ const GradientWheel = ({participants, winnerName, winnerIndex, ...props}) => {
         })
         }
     
-        <Link className="signup-link" to="/signup">Sign Up</Link>
-      
+        <li><Link className="signup-link" to="/signup">Sign Up</Link></li>
+        <li><div id="clear-wheel" onClick={() => setModalShow(true)}>Clear Wheel</div></li>
+
+        <AdminModal
+          clearParticipants={clearParticipants}
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+        />
       </ul>
     </div>
   )

@@ -32,10 +32,6 @@ h1 {
   flex-direction: column;
 }
 
-a {
-  margin: 0 auto;
-}
-
 a:hover {
   text-decoration: none;
 }

@@ -98,7 +98,6 @@ button:focus {
 .signup-link {
   background-color: #007bff;
   margin-top: 10px;
-  position: absolute;
   padding: 10px;
   color: white;
   font-size: 14px;
@@ -115,6 +114,12 @@ button:focus {
 
 #winner {
   color: darkgray;
+}
+
+#clear-wheel {
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 

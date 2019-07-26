@@ -39,6 +39,11 @@ app.post('/signup', (req, res) => {
   }
 })
 
+app.post('/clearwheel', (req, res) => {
+  fs.writeFileSync('participants.json', JSON.stringify([]))
+  res.sendStatus(200);
+})
+
 app.listen(PORT, () => {
   console.log(`Express server listening on ${PORT}`)
 })
